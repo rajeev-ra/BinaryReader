@@ -20,12 +20,18 @@ namespace MainForm
 
         private void InitializeForm()
         {
-            this.MinimumSize = new Size(800, 600);
+            this.MinimumSize = new Size(940, 600);
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            OpenFileDialog odlg = new OpenFileDialog();
+            if (odlg.ShowDialog() == DialogResult.OK)
+            {
+                DataManager dataMgr = new DataManager(odlg.FileName);
+                this.dataViewControl1.UpdateView(ref dataMgr);
+                this.textBox1.Visible = true;
+            }
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
