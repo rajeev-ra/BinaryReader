@@ -12,6 +12,7 @@ namespace MainForm
 {
     public partial class DataViewControl : UserControl
     {
+        private DataManager _dataManager = null;
         public DataViewControl()
         {
             this.DoubleBuffered = true;
@@ -21,11 +22,16 @@ namespace MainForm
             this.AutoScrollMinSize = new Size(0, 100);
         }
 
-        public void UpdateView(ref DataManager dataMgr)
+        public void SetDataManager(DataManager dataMgr)
+        {
+            _dataManager = dataMgr;
+        }
+
+        public void UpdateView(int page)
         {
             ClearAll();
-            int length = dataMgr.GetByteCount();
-            Byte[] data = dataMgr.ReadBytes(0, length);
+            int length = _dataManager.GetByteCount();
+            Byte[] data = _dataManager.ReadBytes(page * 1024, 1024);
             this.hexViewControl1.InsertData(ref data);
         }
         private void hexView_TextChanged(object sender, EventArgs e)

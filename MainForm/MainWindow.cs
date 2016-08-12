@@ -16,6 +16,7 @@ namespace MainForm
         {
             InitializeComponent();
             InitializeForm();
+            this.statusControl1.SetMethod(PageSelect);
         }
 
         private void InitializeForm()
@@ -29,7 +30,12 @@ namespace MainForm
             if (odlg.ShowDialog() == DialogResult.OK)
             {
                 DataManager dataMgr = new DataManager(odlg.FileName);
-                this.dataViewControl1.UpdateView(ref dataMgr);
+                int nPages = dataMgr.GetByteCount() / 1024 + (dataMgr.GetByteCount() % 1024 == 0 ? 0 : 1);
+                this.statusControl1.AddButtons(nPages);
+
+                this.dataViewControl1.SetDataManager(dataMgr);
+                this.dataViewControl1.UpdateView(0);
+                this.dataViewControl1.UpdateView(0);
                 this.textBox1.Visible = true;
             }
         }
@@ -37,6 +43,13 @@ namespace MainForm
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        public int PageSelect(int i)
+        {
+            this.statusControl1.CurrentPage(i);
+            this.dataViewControl1.UpdateView(i);
+            return 0;
         }
     }
 }

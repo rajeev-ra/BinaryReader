@@ -36,8 +36,9 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.dataViewControl1 = new MainForm.DataViewControl();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.statusControl1 = new MainForm.StatusControl();
             this.mainMenuStrip.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -104,14 +105,28 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.dataViewControl1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.textBox1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.statusControl1, 0, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 24);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(284, 237);
             this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // dataViewControl1
+            // 
+            this.dataViewControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataViewControl1.AutoScroll = true;
+            this.dataViewControl1.AutoScrollMinSize = new System.Drawing.Size(0, 500);
+            this.dataViewControl1.Location = new System.Drawing.Point(0, 19);
+            this.dataViewControl1.Margin = new System.Windows.Forms.Padding(0);
+            this.dataViewControl1.Name = "dataViewControl1";
+            this.dataViewControl1.Size = new System.Drawing.Size(284, 196);
+            this.dataViewControl1.TabIndex = 0;
             // 
             // textBox1
             // 
@@ -129,18 +144,15 @@
             this.textBox1.Text = "          0  1  2  3  4  5  6  7   8  9  A  B  C  D  E  F";
             this.textBox1.Visible = false;
             // 
-            // dataViewControl1
+            // statusControl1
             // 
-            this.dataViewControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.statusControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataViewControl1.AutoScroll = true;
-            this.dataViewControl1.AutoScrollMinSize = new System.Drawing.Size(0, 500);
-            this.dataViewControl1.Location = new System.Drawing.Point(0, 19);
-            this.dataViewControl1.Margin = new System.Windows.Forms.Padding(0);
-            this.dataViewControl1.Name = "dataViewControl1";
-            this.dataViewControl1.Size = new System.Drawing.Size(284, 199);
-            this.dataViewControl1.TabIndex = 0;
+            this.statusControl1.Location = new System.Drawing.Point(0, 215);
+            this.statusControl1.Margin = new System.Windows.Forms.Padding(0);
+            this.statusControl1.Name = "statusControl1";
+            this.statusControl1.Size = new System.Drawing.Size(284, 19);
+            this.statusControl1.TabIndex = 2;
             // 
             // MainWindow
             // 
@@ -173,6 +185,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private DataViewControl dataViewControl1;
         private System.Windows.Forms.TextBox textBox1;
+        private StatusControl statusControl1;
     }
 }
 
