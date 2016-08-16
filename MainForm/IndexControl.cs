@@ -17,13 +17,13 @@ namespace MainForm
             InitializeComponent();
         }
 
-        public void UpdateIndex(int iLines)
+        public void UpdateIndex(int iLines, int currPage)
         {
             if (this.Lines.Count() <= iLines)
             {
                 string txt = "";
                 for (int i = (this.Lines.Count() == 0 ? 0 : this.Lines.Count() - 1); i < iLines; i++)
-                    txt += i.ToString("X3") + "0 \r\n";
+                    txt += (i + currPage * MainWindow._page_size / 16).ToString("X3") + "0 \r\n";
                 this.Text = txt;
             }
         }

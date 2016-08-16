@@ -12,6 +12,7 @@ namespace MainForm
 {
     public partial class MainWindow : Form
     {
+        public static int _page_size = 4096;
         public MainWindow()
         {
             InitializeComponent();
@@ -30,7 +31,7 @@ namespace MainForm
             if (odlg.ShowDialog() == DialogResult.OK)
             {
                 DataManager dataMgr = new DataManager(odlg.FileName);
-                int nPages = dataMgr.GetByteCount() / 1024 + (dataMgr.GetByteCount() % 1024 == 0 ? 0 : 1);
+                int nPages = dataMgr.GetByteCount() / _page_size + (dataMgr.GetByteCount() % _page_size == 0 ? 0 : 1);
                 this.statusControl1.AddButtons(nPages);
 
                 this.dataViewControl1.SetDataManager(dataMgr);
